@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LRU Cache Visualizer | Interactive Data Structure Demo</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-project-diagram"></i> LRU Cache Visualizer</h1>
+            <p class="subtitle">Interactive demonstration of Least Recently Used caching algorithm</p>
+        </header>
+
+        <div class="dashboard">
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <div class="panel-section">
+                    <h2><i class="fas fa-sliders-h"></i> Cache Configuration</h2>
+                    <div class="input-group">
+                        <label for="cacheSize">Cache Capacity:</label>
+                        <input type="number" id="cacheSize" placeholder="Enter size (1-10)" min="1" max="10">
+                        <button id="initBtn" onclick="initializeCache()">
+                            <i class="fas fa-play"></i> Initialize
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h2><i class="fas fa-tasks"></i> Cache Operations</h2>
+                    <div class="input-group">
+                        <label for="keyInput">Key:</label>
+                        <input type="number" id="keyInput" placeholder="Enter key">
+                    </div>
+                    <div class="input-group">
+                        <label for="valueInput">Value:</label>
+                        <input type="number" id="valueInput" placeholder="Enter value">
+                    </div>
+                    <div class="button-group">
+                        <button id="putBtn" onclick="put()">
+                            <i class="fas fa-save"></i> Put
+                        </button>
+                        <button id="getBtn" onclick="get()">
+                            <i class="fas fa-search"></i> Get
+                        </button>
+                        <button id="clearBtn" onclick="clearCache()">
+                            <i class="fas fa-trash-alt"></i> Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization Area -->
+            <div class="visualization">
+                <h2><i class="fas fa-eye"></i> Cache Visualization</h2>
+                <div class="cache-status">
+                    <div class="cache-meta">
+                        <span id="capacityDisplay">Capacity: 0</span>
+                        <span id="sizeDisplay">Items: 0</span>
+                        <span id="hitRateDisplay">Hit Rate: 0%</span>
+                    </div>
+                    <div id="cacheContainer" class="cache-items"></div>
+                </div>
+                <div class="recent-actions">
+                    <h3><i class="fas fa-history"></i> Recent Actions</h3>
+                    <div id="actionLog" class="log-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Information Sections -->
+        <div class="info-accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <i class="fas fa-info-circle"></i> About LRU Cache
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>LRU (Least Recently Used) Cache is a caching strategy that organizes items based on their usage. When the cache reaches its capacity limit, it evicts the least recently accessed item first.</p>
+                    <p>This visualizer demonstrates the LRU algorithm with a doubly-linked list and hash map implementation, showing real-time updates as you interact with the cache.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <i class="fas fa-star"></i> Key Features
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Real-time visualization of cache operations</li>
+                        <li><i class="fas fa-check-circle"></i> Detailed performance metrics tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Interactive tutorial mode for learning</li>
+                        <li><i class="fas fa-check-circle"></i> Responsive design works on all devices</li>
+                        <li><i class="fas fa-check-circle"></i> Action history log for debugging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Script.js"></script>
+</body>
+</html>
